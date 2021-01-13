@@ -1,10 +1,8 @@
+#include "CompoMe/Log.hpp"
 #include "Components/CompoMe/Log/To_File.hpp"
 #include "Serialization_context.hpp"
-
 #include <cstdlib>
 #include <string>
-
-#include "CompoMe/Log.hpp"
 
 namespace CompoMe {
 
