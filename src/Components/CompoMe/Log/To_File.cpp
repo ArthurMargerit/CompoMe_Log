@@ -2,6 +2,7 @@
 #include "Components/CompoMe/Log/To_File.hpp"
 #include "CompoMe/Log.hpp"
 #include <algorithm>
+#include <cstdio>
 
 namespace CompoMe {
 
@@ -46,7 +47,20 @@ void To_File::start() {
   // start: parent
   Component::start();
   C_INFO_TAG("START: To_File", "Component,To_File");
+  if (this->get_path() == "") {
+    this->set_path(std::tmpnam(nullptr));
+  }
 
+  C_INFO_TAG("LOG,FILE", "open file log: ", this->get_path());
+  this->output.open(this->get_path());
+  if (!this->output.is_open()) {
+    C_ERROR_TAG("LOG,FILE", "Fail to open file");
+    return;
+  }
+
+  C_TO_INFO(CompoMe::Require_helper<CompoMe::Log::Log_I>(this->get_lgo()),
+            "Log open");
+  return;
   // start: sub componentreturn;
 }
 
@@ -55,6 +69,7 @@ void To_File::step() {
   Component::step();
   C_INFO_TAG("STEP: To_File", "Component,To_File");
 
+  this->output.flush();
   // step: receiver process// step: sub_componentreturn;
 }
 
@@ -63,6 +78,8 @@ void To_File::stop() {
   Component::stop();
   // stop: sub_component
   C_INFO_TAG("STOP: To_File", "Component,To_File");
+
+  this->output.close();
   return;
 }
 

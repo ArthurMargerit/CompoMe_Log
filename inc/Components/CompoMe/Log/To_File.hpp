@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Components/Component.hpp"
-
+#include <fstream>
 #include "CompoMe/Log.hpp"
 // TYPE
 #include "Data/CompoMe_Log.hpp"
@@ -97,6 +97,12 @@ public:
   // SUB COMPONENT ////////////////////////////////////////////////////////////
 
   // SUB CONNECTOR ////////////////////////////////////////////////////////////
+
+private:
+  std::ofstream output;
+
+public:
+  std::ostream &get_output() { return this->output; }
 };
 
 std::ostream &operator<<(std::ostream &os, const To_File &c);
