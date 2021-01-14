@@ -171,8 +171,8 @@ To_File::from_stream_sc(std::istream &is,
 std::istream &
 To_File::from_stream(std::istream &is,
                      CompoMe::Serialization_context_import &p_ctx) {
-  To_File l_reset;
-  *this = l_reset;
+  // To_File l_reset;
+  // *this = l_reset;
 
   char l_c = is.get();
   if (l_c != '{') {

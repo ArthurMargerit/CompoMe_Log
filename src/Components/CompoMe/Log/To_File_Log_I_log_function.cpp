@@ -9,7 +9,7 @@ void To_File_Log_I_log::error(CompoMe::String mess, CompoMe::Log::Log_Info i) {
 
   this->get_c().get_output()
       << i.a_Emitted_on().a_sec() << ":" << i.a_Emitted_on().a_usec()
-      << " ERROR " << mess << i.a_Tag().str << " " << i.a_File().str << ":"
+      << " ERROR " << mess << " " << i.a_Tag().str << " " << i.a_File().str << ":"
       << i.a_Line() << std::endl;
 
   return;
@@ -18,7 +18,7 @@ void To_File_Log_I_log::warning(CompoMe::String mess,
                                 CompoMe::Log::Log_Info i) {
   this->get_c().get_output()
       << i.a_Emitted_on().a_sec() << ":" << i.a_Emitted_on().a_usec()
-      << " WARNING " << mess << i.a_Tag().str << " " << i.a_File().str << ":"
+      << " WARNING " << mess << " " << i.a_Tag().str << " " << i.a_File().str << ":"
       << i.a_Line() << std::endl;
 
   return;
@@ -26,16 +26,16 @@ void To_File_Log_I_log::warning(CompoMe::String mess,
 void To_File_Log_I_log::debug(CompoMe::String mess, CompoMe::Log::Log_Info i) {
   this->get_c().get_output()
       << i.a_Emitted_on().a_sec() << ":" << i.a_Emitted_on().a_usec()
-      << " DEBUG " << mess << i.a_Tag().str << " " << i.a_File().str << ":"
-      << i.a_Line() << std::endl;
+      << " DEBUG " << mess << " " << i.a_Tag().str << " " << i.a_File().str
+      << ":" << i.a_Line() << std::endl;
 
   return;
 }
 void To_File_Log_I_log::info(CompoMe::String mess, CompoMe::Log::Log_Info i) {
   this->get_c().get_output()
       << i.a_Emitted_on().a_sec() << ":" << i.a_Emitted_on().a_usec()
-      << " INFO " << mess << i.a_Tag().str << " " << i.a_File().str << ":"
-      << i.a_Line() << std::endl;
+      << " INFO " << mess << " " << i.a_Tag().str << " " << i.a_File().str
+      << ":" << i.a_Line() << std::endl;
 
   return;
 }

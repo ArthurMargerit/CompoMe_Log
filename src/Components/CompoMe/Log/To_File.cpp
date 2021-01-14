@@ -2,7 +2,7 @@
 #include "Components/CompoMe/Log/To_File.hpp"
 #include "CompoMe/Log.hpp"
 #include <algorithm>
-#include <cstdio>
+#include <stdlib.h>
 
 namespace CompoMe {
 
@@ -48,7 +48,8 @@ void To_File::start() {
   Component::start();
   C_INFO_TAG("START: To_File", "Component,To_File");
   if (this->get_path() == "") {
-    this->set_path(std::tmpnam(nullptr));
+    char c[] = "/tmp/CompoMe_log_XXXXXX";
+    this->set_path(mktemp(c));
   }
 
   C_INFO_TAG("LOG,FILE", "open file log: ", this->get_path());
