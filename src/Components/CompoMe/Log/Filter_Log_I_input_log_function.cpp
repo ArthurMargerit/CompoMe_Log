@@ -1,46 +1,84 @@
-#include "Components/CompoMe/Log/Filter.hpp"
 #include "Components/CompoMe/Log/Filter_Log_I_input_log.hpp"
+#include "Components/CompoMe/Log/Filter.hpp"
 
-namespace CompoMe {
 
-namespace Log {
 
-void Filter_Log_I_input_log::error(CompoMe::String mess,
-                                   CompoMe::Log::Log_Info i) {
 
-  void();
+namespace CompoMe{
 
-  return;
-}
-void Filter_Log_I_input_log::warning(CompoMe::String mess,
-                                     CompoMe::Log::Log_Info i) {
+namespace Log{
 
-  void();
 
-  return;
-}
-void Filter_Log_I_input_log::debug(CompoMe::String mess,
-                                   CompoMe::Log::Log_Info i) {
 
-  void();
+  
+  
+  void Filter_Log_I_input_log::error(CompoMe::String mess,CompoMe::Log::Log_Info i){
 
-  return;
-}
-void Filter_Log_I_input_log::info(CompoMe::String mess,
-                                  CompoMe::Log::Log_Info i) {
+    
 
-  void();
+    
+    void();
+    
 
-  return;
-}
-void Filter_Log_I_input_log::log(CompoMe::Log::Kind_e k, CompoMe::String mess,
-                                 CompoMe::Log::Log_Info i) {
+    
+    return;
+    
+  }
+  void Filter_Log_I_input_log::warning(CompoMe::String mess,CompoMe::Log::Log_Info i){
 
-  void();
+    
 
-  return;
-}
+    
+    void();
+    
 
-} // namespace Log
+    
+    return;
+    
+  }
+  void Filter_Log_I_input_log::debug(CompoMe::String mess,CompoMe::Log::Log_Info i){
 
-} // namespace CompoMe
+    
+
+    
+    void();
+    
+
+    
+    return;
+    
+  }
+  void Filter_Log_I_input_log::info(CompoMe::String mess,CompoMe::Log::Log_Info i){
+
+    
+
+    
+    void();
+    
+
+    
+    return;
+    
+  }
+  void Filter_Log_I_input_log::log(CompoMe::Log::Kind_e k,CompoMe::String mess,CompoMe::Log::Log_Info i){
+
+    
+
+    
+    void();
+    
+
+    
+    return;
+    
+  }
+
+
+  
+
+
+
+} //CompoMe
+
+} //Log
+

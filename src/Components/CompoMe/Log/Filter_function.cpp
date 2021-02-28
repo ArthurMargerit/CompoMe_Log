@@ -1,13 +1,22 @@
 #include "Components/CompoMe/Log/Filter.hpp"
 
-namespace CompoMe {
 
-namespace Log {
+
+namespace CompoMe{
+
+namespace Log{
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 //                                 FUNCTIONS                               //
 /////////////////////////////////////////////////////////////////////////////
 
-} // namespace Log
 
-} // namespace CompoMe
+
+
+
+} //CompoMe
+
+} //Log
+

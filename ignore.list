@@ -3,4 +3,4 @@
 .*SWIG.*
 GEN:COMPONENT.CompoMe::Log::To_Stream.PROVIDE.Log_I.log.FUNCTION
 GEN:COMPONENT.CompoMe::Log::To_File.PROVIDE.Log_I.log.FUNCTION
-GEN:COMPONENT.CompoMe::Log::To_File
+GEN:COMPONENT.CompoMe::Log::To_File$

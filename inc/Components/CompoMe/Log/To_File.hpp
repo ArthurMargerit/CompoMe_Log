@@ -1,8 +1,7 @@
 #pragma once
-
+#include "CompoMe/Log.hpp"
 #include "Components/Component.hpp"
 #include <fstream>
-#include "CompoMe/Log.hpp"
 // TYPE
 #include "Data/CompoMe_Log.hpp"
 
@@ -31,6 +30,11 @@ public:
   // Contructor / Destructor
   To_File();
   virtual ~To_File() noexcept;
+
+  CompoMe::Log::To_File &operator=(const CompoMe::Log::To_File &i) {
+    this->set_path(i.get_path());
+    return *this;
+  }
 
   // composant initialisation
   void configuration() override;
@@ -72,12 +76,10 @@ private:
                                     CompoMe::Serialization_context_import &);
 
 public:
-  std::ostream &
-  to_stream(std::ostream &os,
-            CompoMe::Serialization_context_export &p_ctx) const override;
-  std::istream &
-  from_stream(std::istream &is,
-              CompoMe::Serialization_context_import &p_ctx) override;
+  void to_stream(std::ostream &os,
+                 CompoMe::Serialization_context_export &p_ctx) const override;
+  void from_stream(std::istream &is,
+                   CompoMe::Serialization_context_import &p_ctx) override;
 
   // INTERFACE ////////////////////////////////////////////////////////////////
   // PROVIDE

@@ -5,60 +5,77 @@
 
 #include "Serialization_context.hpp"
 
-namespace CompoMe {
 
-namespace Log {
+
+
+namespace CompoMe{
+
+namespace Log{
+
+
 
 class Filter;
 
-class Filter_Filter_Management_I_filter_Manager
-    : public ::CompoMe::Log::Filter_Management_I {
-public:
-  //! Default constructor
-  Filter_Filter_Management_I_filter_Manager(Filter *comp);
+class  Filter_Filter_Management_I_filter_Manager : public ::CompoMe::Log::Filter_Management_I
+  {
+  public:
 
-  //! Destructor
-  virtual ~Filter_Filter_Management_I_filter_Manager() noexcept;
 
-  bool is_fake() override { return false; }
+    //! Default constructor
+    Filter_Filter_Management_I_filter_Manager(Filter* comp);
 
-  ///////////////////////////////////////////////////////////////////////////
-  //                                FUNCTION                               //
-  ///////////////////////////////////////////////////////////////////////////
+    //! Destructor
+    virtual ~Filter_Filter_Management_I_filter_Manager() noexcept;
 
-  // Filter_Management_I
-  // /////////////////////////////////////////////////////////
-  virtual void add(CompoMe::Log::Kind_e k) override;
-  virtual void del(CompoMe::Log::Kind_e k) override;
+    bool is_fake() override {return false;}
 
-  ///////////////////////////////////////////////////////////////////////////
-  //                              GET/SET                                  //
-  ///////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
+    //                                FUNCTION                               //
+    ///////////////////////////////////////////////////////////////////////////
+    
+    // Filter_Management_I /////////////////////////////////////////////////////////
+virtual void add(CompoMe::Log::Kind_e k) override;
+virtual void del(CompoMe::Log::Kind_e k) override;
 
-  // Filter_Management_I
-  // ///////////////////////////////////////////////////////////////////
 
-  ///////////////////////////////////////////////////////////////////////////
-  //                            SAVE/LOAD                                  //
-  ///////////////////////////////////////////////////////////////////////////
-  // void save(std::ostream& os) const;
-  // void load(std::istream& is);
-  std::ostream &to_stream(std::ostream &,
-                          CompoMe::Serialization_context_export &) const;
-  std::istream &from_stream(std::istream &,
-                            CompoMe::Serialization_context_import &);
+    
 
-private:
-  Filter &get_c() const;
-  Filter *composant;
+    ///////////////////////////////////////////////////////////////////////////
+    //                              GET/SET                                  //
+    ///////////////////////////////////////////////////////////////////////////
+    
+    // Filter_Management_I ///////////////////////////////////////////////////////////////////
 
-  ///////////////////////////////////////////////////////////////////////////
-  //                                  DATA                                 //
-  ///////////////////////////////////////////////////////////////////////////
 
-  // DATA for Filter_Management_I
-};
+    
 
-} // namespace Log
+    ///////////////////////////////////////////////////////////////////////////
+    //                            SAVE/LOAD                                  //
+    ///////////////////////////////////////////////////////////////////////////
+    // void save(std::ostream& os) const;
+    // void load(std::istream& is);
+    std::ostream& to_stream(std::ostream& , CompoMe::Serialization_context_export&) const;
+    std::istream& from_stream(std::istream& , CompoMe::Serialization_context_import&);
 
-} // namespace CompoMe
+  private:
+    Filter& get_c() const;
+    Filter* composant;
+    
+    
+    ///////////////////////////////////////////////////////////////////////////
+    //                                  DATA                                 //
+    ///////////////////////////////////////////////////////////////////////////
+    
+    // DATA for Filter_Management_I
+
+
+    
+    
+  };
+
+
+
+} //CompoMe
+
+} //Log
+
