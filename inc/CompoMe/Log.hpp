@@ -13,6 +13,7 @@ extern CompoMe::Require_helper_t<CompoMe::Log::Log_I> _log_output;
 #include "Interfaces/CompoMe/Log/Log_I/Log_I.hpp"
 #include "Structs/CompoMe/Log/Log_Info.hpp"
 #include <time.h>
+#include <sstream>
 
 namespace {
 template <typename V> void M(std::stringstream &s, V v) { s << v; }
