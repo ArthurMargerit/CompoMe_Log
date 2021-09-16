@@ -47,6 +47,7 @@ public:
   // GET/SET //////////////////////////////////////////////////////////////////
   // regex
   CompoMe::String get_regex() const;
+  CompoMe::String& a_regex();
   void set_regex(const CompoMe::String &regex);
 
   // PROVIDES
