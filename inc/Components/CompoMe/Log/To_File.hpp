@@ -47,6 +47,7 @@ public:
   // GET/SET //////////////////////////////////////////////////////////////////
   // path
   CompoMe::String get_path() const;
+  CompoMe::String& a_path();
   void set_path(const CompoMe::String &path);
 
   // PROVIDES

@@ -61,6 +61,7 @@ class Filter : public  CompoMe::Component {
   // GET/SET //////////////////////////////////////////////////////////////////
   // filter
   CompoMe::Log::Kind_e get_filter() const;
+  CompoMe::Log::Kind_e& a_filter();
   void set_filter(const CompoMe::Log::Kind_e& filter);
   
 
