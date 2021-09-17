@@ -3,16 +3,25 @@
 - TYPE:
     NAME: CompoMe::Log::Kind_e
     ENUM:
+      NONE: 0
       ERROR: 1
       WARNING: 2
       DEBUG: 4
       INFO: 8
+    OPTIONS:
+      ENUM_FLAGS: true
+      ENUM_CLS: std::uint32_t
+    INCLUDE:
+      - '<cstdint>'
+
 
 - STRUCT:
     NAME: CompoMe::Log::time
     DATA:
       - i64 sec
       - i64 usec
+    OPTIONS:
+      STREAM: true
 
 - STRUCT:
     NAME: CompoMe::Log::Log_Info
@@ -22,6 +31,8 @@
       - i32 Line
       - CompoMe::String Tag
       - CompoMe::Log::time Emitted_on
+    OPTIONS:
+      STREAM: true      
 
 - INTERFACE:
     NAME: CompoMe::Log::Log_I
@@ -31,6 +42,30 @@
       - void debug(CompoMe::String mess, CompoMe::Log::Log_Info i)
       - void info(CompoMe::String mess, CompoMe::Log::Log_Info i)
       - void log(CompoMe::Log::Kind_e k, CompoMe::String mess, CompoMe::Log::Log_Info i)
+    OPTIONS:
+      CALLER_STREAM: true
+      FAKE_STREAM: true
+
+
+- INTERFACE:
+    NAME: CompoMe::Log::Log_I_many_return
+    GEN: many_return(CompoMe::Log::Log_I,Vec)
+    OPTIONS:
+      CALLER_STREAM: true
+      FAKE_STREAM: true
+
+- CONNECTOR:
+    NAME: CompoMe::Log::Distri_log
+    INTERFACE: CompoMe::Log::Log_I
+    INTERFACE_MANY_RETURN: CompoMe::Log::Log_I_many_return
+    MODEL:
+      CPP: Distri_many_return.cpp
+      HPP: Distri_many_return.hpp
+    PROVIDE:
+      - CompoMe::Log::Log_I_many_return c
+    REQUIRE_LIST:
+      - CompoMe::Log::Log_I list_r
+
 
 # Match
 - COMPONENT:
@@ -60,6 +95,7 @@
       - CompoMe::Log::Log_I refused_log
     DATA:
       - CompoMe::Log::Kind_e filter
+      - Vec<CompoMe::String> filter_tag
 
 # Log End
 - COMPONENT:
@@ -71,5 +107,14 @@
 
 - COMPONENT:
     NAME: CompoMe::Log::To_Stream
+    PROVIDE:
+      - CompoMe::Log::Log_I log
+
+- COMPONENT:
+    NAME: CompoMe::Log::To_CircularFile
+    DATA:
+      - CompoMe::String path
+      - ui64 ligne_buff_size
+      - ui64 current_position
     PROVIDE:
       - CompoMe::Log::Log_I log

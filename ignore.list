@@ -1,6 +1,10 @@
 .*BASE.*
 .*DBUS.*
 .*SWIG.*
-GEN:COMPONENT.CompoMe::Log::To_Stream.PROVIDE.Log_I.log.FUNCTION
-GEN:COMPONENT.CompoMe::Log::To_File.PROVIDE.Log_I.log.FUNCTION
+GEN:COMPONENT.CompoMe::Log::To_Stream.PROVIDE.Log_I.log.FUNCTION$
+GEN:COMPONENT.CompoMe::Log::Filter.PROVIDE.Log_I.input_log.FUNCTION$
+GEN:COMPONENT.CompoMe::Log::Filter.PROVIDE.Filter_Management_I.filter_Manager.FUNCTION$
+GEN:COMPONENT.CompoMe::Log::To_CircularFile.PROVIDE.Log_I.log.FUNCTION$
+GEN:COMPONENT.CompoMe::Log::To_CircularFile$
+GEN:COMPONENT.CompoMe::Log::To_File.PROVIDE.Log_I.log.FUNCTION$
 GEN:COMPONENT.CompoMe::Log::To_File$
