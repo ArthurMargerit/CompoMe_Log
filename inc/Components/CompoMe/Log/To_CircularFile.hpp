@@ -52,12 +52,15 @@ public:
   // GET/SET //////////////////////////////////////////////////////////////////
   // path
   CompoMe::String get_path() const;
+  CompoMe::String &a_path();
   void set_path(const CompoMe::String &path);
   // ligne_buff_size
   ui64 get_ligne_buff_size() const;
+  ui64 &a_ligne_buff_size();
   void set_ligne_buff_size(const ui64 &ligne_buff_size);
   // current_position
   ui64 get_current_position() const;
+  ui64 &a_current_position();
   void set_current_position(const ui64 &current_position);
 
   // PROVIDES
@@ -114,10 +117,10 @@ public:
   // SUB CONNECTOR ////////////////////////////////////////////////////////////
 private:
   std::ofstream output;
-  
+
 public:
   std::ostream &get_output() {
-    this->current_position ++;
+    this->current_position++;
     if (this->current_position % this->ligne_buff_size == 0) {
       this->current_position = 0;
       this->output.seekp(0);
