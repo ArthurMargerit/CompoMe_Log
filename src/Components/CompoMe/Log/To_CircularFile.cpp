@@ -60,7 +60,7 @@ void To_CircularFile::start() {
     return;
   }
 
-  C_TO_INFO(CompoMe::Require_helper<CompoMe::Log::Log_I>(this->get_lgo()),
+  C_TO_INFO(CompoMe::Require_helper_t<CompoMe::Log::Log_I>(&this->get_log()),
             "Log open");
   // start: sub componentreturn;
 }

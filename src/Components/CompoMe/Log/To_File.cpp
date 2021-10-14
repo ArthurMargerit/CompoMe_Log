@@ -59,8 +59,8 @@ void To_File::start() {
     return;
   }
 
-  C_TO_INFO(CompoMe::Require_helper<CompoMe::Log::Log_I>(this->get_lgo()),
-            "Log open");
+  CompoMe::Require_helper_t<CompoMe::Log::Log_I> l = &this->get_log();
+  C_TO_INFO(l, "Log open");
   return;
   // start: sub componentreturn;
 }
