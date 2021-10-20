@@ -61,7 +61,7 @@ template <typename... T> std::string MERGE(T... t) {
   _log_info.set_Tag(TAG);                                                      \
   struct timespec _spec;                                                       \
   clock_gettime(CLOCK_REALTIME, &_spec);                                       \
-  CompoMe::Log::time _time_l(_spec.tv_sec, _spec.tv_nsec / 1.0e3);             \
+  CompoMe::Log::time _time_l(_spec.tv_sec,(int)(_spec.tv_nsec / 1000)); \
   _log_info.set_Emitted_on(_time_l);
 
 #define C_INFO(...) C_TO_INFO_TAG(COMPOME_LOG_OUTPUT, "None", __VA_ARGS__)
