@@ -15,7 +15,7 @@ constexpr int c_strcmp(char const *lhs, char const *rhs) {
 }
 
 
-#define DO_EXPAND(VAL)  VAL ## 1
+#define DO_EXPAND(VAL)  1 ## VAL
 #define EXPAND(VAL)     DO_EXPAND(VAL)
 #define XSTR(x) STR(x)
 #define STR(x) #x
